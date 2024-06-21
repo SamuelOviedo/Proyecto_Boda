@@ -5,46 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fotos subidas</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        .user-section {
-            margin-bottom: 20px;
-        }
-
-        .user-title {
-            font-size: 1.5em;
-            margin-bottom: 10px;
-        }
-
-        .image-container {
-            position: relative;
-            display: inline-block;
-            margin: 10px;
-        }
-
-        .image-container img {
-            max-width: 100px;
-            max-height: 100px;
-        }
-
-        .hover-info {
-            display: none;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            background: rgba(0, 0, 0, 0.75);
-            color: white;
-            padding: 5px;
-            font-size: 0.8em;
-        }
-
-        .image-container:hover .hover-info {
-            display: block;
-        }
-    </style>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/styles.css">
 </head>
 
 <body>
+    <?php include './widgets/header.php'; ?>
     <div class="container mt-5">
         <h1 class="text-center">Fotos subidas</h1>
         <div id="images-grid"></div>
@@ -93,6 +59,10 @@
             });
         });
     </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </body>
 
 </html>

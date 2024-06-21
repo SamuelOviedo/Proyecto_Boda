@@ -4,87 +4,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tomar Fotografía</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        #video {
-            width: 100%;
-            height: auto;
-        }
-
-        #canvas {
-            display: none;
-        }
-
-        #photo {
-            display: none;
-            width: 100%;
-        }
-    </style>
+    <title>Página de Inicio de Boda</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/styles.css">
 </head>
 
 <body>
-    <div class="container mt-5">
-        <h1 class="text-center">Tomar Fotografía</h1>
-        <div class="text-center">
-            <video id="video" playsinline autoplay></video>
-            <canvas id="canvas"></canvas>
-            <img id="photo" alt="Tu Fotografía">
-        </div>
-        <div class="text-center mt-3">
-            <button id="snap" class="btn btn-primary">Tomar Foto</button>
-            <button id="upload" class="btn btn-success" disabled>Subir Foto</button>
-        </div>
-    </div>
+    <?php include './widgets/header.php'; ?>
+    <main class="container">
+        <section id="home" class="text-center my-5">
+            <div class="">
+                <!-- Espacio para imagen principal -->
+                <h1 class="display-4">Bienvenidos a Nuestra Boda</h1>
+                <p class="lead">Fecha: Domingo 7 de Julio</p>
+                <p class="lead">Ubicación: Colegio de abogados</p>
+            </div>
+        </section>
+        <section id="about" class="my-5">
+            <h2 class="text-center">Sobre Nosotros</h2>
+            <p class="text-center">Nuestra historia...</p>
+            <!-- Espacio para imagen sobre la pareja -->
+        </section>
+        <section id="gallery" class="my-5">
+            <h2 class="text-center">Galería</h2>
+            <div class="row">
+                <!-- Espacios para imágenes de la galería -->
+                <div class="col-6 col-md-3 mb-4">
+                    <div class="gallery-item bg-tertiary p-4 rounded"></div>
+                </div>
+                <div class="col-6 col-md-3 mb-4">
+                    <div class="gallery-item bg-tertiary p-4 rounded"></div>
+                </div>
+                <div class="col-6 col-md-3 mb-4">
+                    <div class="gallery-item bg-tertiary p-4 rounded"></div>
+                </div>
+                <div class="col-6 col-md-3 mb-4">
+                    <div class="gallery-item bg-tertiary p-4 rounded"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-light text-center py-3">
+        <p>&copy; 2024 Nuestra Boda</p>
+    </footer>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script>
-        const video = document.getElementById('video');
-        const canvas = document.getElementById('canvas');
-        const photo = document.getElementById('photo');
-        const snap = document.getElementById('snap');
-        const upload = document.getElementById('upload');
-        const context = canvas.getContext('2d');
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-        // Acceder a la cámara
-        navigator.mediaDevices.getUserMedia({
-                video: true
-            })
-            .then(stream => {
-                video.srcObject = stream;
-                video.play();
-            })
-            .catch(err => {
-                console.error("Error al acceder a la cámara: ", err);
-            });
-
-        // Tomar la foto
-        snap.addEventListener('click', () => {
-            canvas.width = video.videoWidth;
-            canvas.height = video.videoHeight;
-            context.drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
-            const data = canvas.toDataURL('image/png');
-            photo.setAttribute('src', data);
-            photo.style.display = 'block';
-            upload.disabled = false;
-        });
-
-        // Subir la foto
-        upload.addEventListener('click', () => {
-            const dataUrl = canvas.toDataURL('image/png');
-            $.ajax({
-                type: 'POST',
-                url: 'upload.php',
-                data: {
-                    imgBase64: dataUrl
-                }
-            }).done(response => {
-                alert('Foto subida con éxito.');
-            }).fail(error => {
-                console.error('Error al subir la foto:', error);
-            });
-        });
-    </script>
 </body>
 
 </html>

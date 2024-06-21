@@ -1,0 +1,97 @@
+:root {
+  --primary-color: #cb6843; /* Color principal */
+  --secondary-color: #d88465; /* Color secundario */
+  --tertiary-color: #a75037; /* Tercer color */
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.hero {
+  background-color: var(--secondary-color);
+}
+
+h1,
+h2 {
+  color: var(--primary-color);
+}
+
+.gallery-item {
+  background-color: var(--tertiary-color);
+  height: 150px;
+}
+
+footer {
+  background-color: var(--primary-color);
+}
+
+.user-section {
+  margin-bottom: 20px;
+}
+
+.user-title {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.image-container {
+  position: relative;
+  display: inline-block;
+  margin: 10px;
+}
+
+.image-container img {
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.hover-info {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 5px;
+  font-size: 0.8em;
+}
+
+.image-container:hover .hover-info {
+  display: block;
+}
+
+#video {
+  width: 100%;
+  height: auto;
+}
+
+#canvas {
+  display: none;
+}
+
+#photo {
+  display: none;
+  width: 100%;
+}
+
+/* Custom classes for navbar */
+.bg-primary-custom {
+  background-color: var(--primary-color) !important;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: #ffff !important;
+}
+
+.navbar-dark .navbar-brand {
+  color: #ffff !important;
+}
+
+.navbar-dark .navbar-toggler {
+  color: var(--secondary-color) !important;
+}
+
+.navbar-dark .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(241,228,179, 1.0)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+}
